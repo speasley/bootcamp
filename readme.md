@@ -15,3 +15,8 @@
 * hashes
 * default parameters
 * arrays
+* load_path
+* tools (ri, irb)
+* solid
+* tdd
+
