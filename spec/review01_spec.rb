@@ -40,13 +40,16 @@ describe "review lesseon 1" do
   end
   
   class CoffeeShop
-    def serve_me(size: "regular", type: "espresso", strength: nil, room: false)
+    # def serve_me(size: "regular", type: "espresso", strength: nil, room: false)
+    def serve_me(options)
+      defaults = {size: "regular", type: "espresso", strength: nil, room: false}
+      defaults.merge!(options)
       # "Here's your #{strength + " " if(strength)}#{size} #{type}."
       coffee = "Here's your"
-      coffee += (strength ? " #{strength}" : "")
-      coffee += (size ? " #{size}" : "")
-      coffee += (type ? " #{type}" : "")
-      coffee += (room ? " with room" : "")
+      coffee += (defaults[:strength] ? " #{defaults[:strength]}" : "")
+      coffee += (defaults[:size] ? " #{defaults[:size]}" : "")
+      coffee += (defaults[:type] ? " #{defaults[:type]}" : "")
+      coffee += (defaults[:room] ? " with room" : "")
       coffee += "."
       coffee
     end
