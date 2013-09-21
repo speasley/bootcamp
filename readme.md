@@ -6,6 +6,14 @@
   * receiver vs message
   * instance variables
 
+# lesson two
+
+# default parameters
+# named parameters
+# symbols
+# hashes
+# object references
+
 # todo
 
 * encapsulation
