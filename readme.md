@@ -8,11 +8,11 @@
 
 # lesson two
 
-# default parameters
-# named parameters
-# symbols
-# hashes
-# object references
+* default parameters
+* named parameters
+* symbols
+* hashes
+* object references
 
 # todo
 
