@@ -40,12 +40,13 @@ describe "review lesseon 1" do
   end
   
   class CoffeeShop
-    def serve_me(size: "regular", type: "espresso", strength: nil)
+    def serve_me(size: "regular", type: "espresso", strength: nil, room: false)
       # "Here's your #{strength + " " if(strength)}#{size} #{type}."
       coffee = "Here's your"
       coffee += (strength ? " #{strength}" : "")
       coffee += (size ? " #{size}" : "")
       coffee += (type ? " #{type}" : "")
+      coffee += (room ? " with room" : "")
       coffee += "."
       coffee
     end
@@ -82,10 +83,16 @@ describe "review lesseon 1" do
       coffee.should == "Here's your medium dark roast."
     end
     
-    it "should server a coffee with the correct strength" do
+    it "should serve a coffee with the correct strength" do
       shop = CoffeeShop.new
       coffee = shop.serve_me(size: "large", type: "light roast", strength: 'single')
       coffee.should == "Here's your single large light roast."
+    end
+    
+    it "should specify the room" do
+      shop = CoffeeShop.new
+      coffee = shop.serve_me(size: "small", room: true)
+      coffee.should == "Here's your small espresso with room."
     end
   end
 end
