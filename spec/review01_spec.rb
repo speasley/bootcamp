@@ -40,18 +40,75 @@ describe "review lesseon 1" do
   end
   
   class CoffeeShop
+    def initialize(defaults = {size: "regular", type: "espresso", strength: nil, room: false})
+      @defaults = defaults
+    end
+    
     # def serve_me(size: "regular", type: "espresso", strength: nil, room: false)
-    def serve_me(options)
-      defaults = {size: "regular", type: "espresso", strength: nil, room: false}
-      defaults.merge!(options)
-      # "Here's your #{strength + " " if(strength)}#{size} #{type}."
+    def serve_me(options = {})
+      order = @defaults.merge(options)
       coffee = "Here's your"
-      coffee += (defaults[:strength] ? " #{defaults[:strength]}" : "")
-      coffee += (defaults[:size] ? " #{defaults[:size]}" : "")
-      coffee += (defaults[:type] ? " #{defaults[:type]}" : "")
-      coffee += (defaults[:room] ? " with room" : "")
+      [:strength, :size, :type].each do |key|
+        coffee += (order[key] ? " #{order[key]}" : "")
+      end
+      coffee += (order[:room] ? " with room" : "")
       coffee += "."
       coffee
+    end
+  end
+
+  class Movies
+    def initialize()
+      @movies = ["jurassic park", "rocky", "rocky II"]
+    end
+    
+    def accept(visitor)
+      size = @movies.size
+      until i > size
+        movie = @movies[i]
+        visitor.visit(movie)
+        i=i+1
+      end
+    end
+  end
+  
+  class LoggingVisitor
+    def visit(item)
+      puts item
+    end
+  end
+  
+  class TotalCount
+    attr_reader :total
+    
+    def initialize
+      @total = 0
+    end
+    
+    def visit(item)
+      @total = @total + 1
+    end
+  end
+  
+  context "visitor" do
+    it "can visit each movie" do
+      movies = Movies.new
+      visitor = LoggingVisitor.new
+      total_movies = TotalCount.new
+      
+      movies.accept(visitor)
+      movies.accept(total_movies)
+      
+      puts total_movies
+      
+      [1, 3, 4].each do |x|
+        puts x * x
+      end
+      
+      [1, 2, 4].map do |x|
+        return x *x
+      end
+      
     end
   end
   
@@ -80,20 +137,21 @@ describe "review lesseon 1" do
   end
   
   context "CoffeeShop" do
+    def shop
+      CoffeeShop.new
+    end
+    
     it "can serve a coffee the way I like it" do
-      shop = CoffeeShop.new
       coffee = shop.serve_me(size: "medium", type: "dark roast")
       coffee.should == "Here's your medium dark roast."
     end
     
     it "should serve a coffee with the correct strength" do
-      shop = CoffeeShop.new
       coffee = shop.serve_me(size: "large", type: "light roast", strength: 'single')
       coffee.should == "Here's your single large light roast."
     end
     
     it "should specify the room" do
-      shop = CoffeeShop.new
       coffee = shop.serve_me(size: "small", room: true)
       coffee.should == "Here's your small espresso with room."
     end
