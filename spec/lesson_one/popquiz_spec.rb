@@ -1,5 +1,30 @@
 require "spec_helper"
 
+class CarWash
+  def initialize(name = "Unknown Name", address = "Unknown Address")
+    @name = name
+    @address = address
+  end
+  def description
+    "#{@name} is located at #{@address}"
+  end
+  def self.wash(car)
+    @car = car
+    "Your #{@car} is clean."
+  end
+end
+
+class Drink
+  attr_reader :name
+  attr_accessor :color
+  attr_accessor :rating
+  def initialize(name)
+    @name = name
+    @color = color
+    @rating = rating
+  end
+end
+
 describe 'pop quiz 1' do
   context :instance_methods do
     it "can define an instance method" do
