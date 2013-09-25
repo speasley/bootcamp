@@ -14,6 +14,14 @@
 * hashes
 * object references
 
+# lession three
+
+* review
+* arrays
+* iterators
+* enumerable
+* acceptance testing (watir, selenium, capybara)
+
 # todo
 
 * encapsulation
