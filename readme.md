@@ -12,11 +12,11 @@
 * named parameters
 * symbols
 * hashes
-* object references
 
 # lession three
 
 * review
+* object references
 * arrays
 * iterators
 * enumerable
