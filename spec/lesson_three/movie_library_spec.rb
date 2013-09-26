@@ -6,19 +6,17 @@ class Movie
   end
 end
 
-
 class MovieLibrary
-  attr_accessor :total_count
-  def initialize(total_count = 0)
-    @total_count = total_count
-    @array_of_movies = []
+  def initialize(movies = [])
+    @movies = movies
   end
 
   def add(movie)
-    if !@array_of_movies.include? movie
-      @array_of_movies.push movie
-      @total_count+=1
-    end
+    @movies.push(movie) unless @movies.include? movie
+  end
+  
+  def total_count
+    @movies.size
   end
 end
 
