@@ -19,4 +19,7 @@
 * tools (ri, irb)
 * solid
 * tdd
+* blocks, procs and lambdas, yield
+* dsl
+* 
 
