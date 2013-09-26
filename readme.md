@@ -12,7 +12,15 @@
 * named parameters
 * symbols
 * hashes
+
+# lession three
+
+* review
 * object references
+* arrays
+* iterators
+* enumerable
+* acceptance testing (watir, selenium, capybara)
 
 # todo
 
