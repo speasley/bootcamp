@@ -20,7 +20,11 @@ class MovieLibrary
   end
   
   def include?(movie)
-    
+    match = false
+    @movies.each do |m|
+      match = true if m == movie
+    end
+    match
   end
   
 end
