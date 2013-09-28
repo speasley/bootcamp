@@ -1,5 +1,10 @@
 require "spec_helper"
 
+#homework
+#move MovieLibrary and Movie to the lib folder (in separate files)
+#separate the include? method into its own module (and whatever else we can)
+#extend one method at run time and another at instantiation time
+
 class Movie
   def initialize(name)
     @name = name

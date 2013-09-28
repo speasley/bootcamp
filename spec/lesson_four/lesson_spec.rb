@@ -3,13 +3,19 @@ require 'spec_helper'
 class Blah
 end
 
+module ExposeBinding
+  def get_binding
+    binding
+  end
+end
+
 module LifeBoat
   class FloatationDevice
   end
 end
 
 module Queryable
-    def matches?
+  def matches?
     each do |item|
       result = yield(item) if block_given?
       return item if result
@@ -29,7 +35,7 @@ end
 
 class Library
   include Queryable
-  
+
   def initialize(books = [])
     @books = books
   end
@@ -74,6 +80,11 @@ describe "modules" do
     
     it "should return false if the book is not in the library" do
       library.has_book?("george of the jungle").should be_false
+    end
+    
+    it "should tell how many books are in the library" do
+      library.extend(Enumerable)
+      library.count.should == 3
     end
   end
 end

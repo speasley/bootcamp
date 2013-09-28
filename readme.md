@@ -41,3 +41,4 @@
 * solid
 * tdd
 * range
+* lazy (lazy object)
