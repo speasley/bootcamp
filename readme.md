@@ -18,14 +18,19 @@
 * review
 * object references
 * arrays
-* iterators
-* enumerable
 * acceptance testing (watir, selenium, capybara)
+
+# lesson four
+
+* review
+* modules
+* equality (value vs instance)
 
 # todo
 
+* iterators
+* enumerable
 * encapsulation
-* equality (value vs instance)
 * public, private, protected
 * begin,rescue,end
 * hashes
@@ -35,4 +40,4 @@
 * tools (ri, irb)
 * solid
 * tdd
-
+* range
