@@ -1,5 +1,10 @@
 require "spec_helper"
 
+#homework
+#move MovieLibrary and Movie to the lib folder (in separate files)
+#separate the include? method into its own module (and whatever else we can)
+#extend one method at run time and another at instantiation time
+
 class Movie
   def initialize(name)
     @name = name
@@ -20,7 +25,11 @@ class MovieLibrary
   end
   
   def include?(movie)
-    
+    match = false
+    @movies.each do |m|
+      match = true if m == movie
+    end
+    match
   end
   
 end
