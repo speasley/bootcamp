@@ -8,6 +8,16 @@ module LifeBoat
   end
 end
 
+module Queryable
+    def matches?
+    each do |item|
+      result = yield(item) if block_given?
+      return item if result
+    end
+    nil
+  end 
+end
+
 
 class Book
   attr_reader :title
@@ -18,6 +28,8 @@ class Book
 end
 
 class Library
+  include Queryable
+  
   def initialize(books = [])
     @books = books
   end
@@ -34,18 +46,10 @@ class Library
   
   private
   
-  def all
+  def each
     @books.each do |book|
       yield book
     end
-  end
-  
-  def matches?
-    all do |item|
-      result = yield(item) if block_given?
-      return item if result
-    end
-    nil
   end  
 end
 
