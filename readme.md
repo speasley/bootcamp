@@ -44,3 +44,12 @@
 * dsl
 * range
 * lazy (lazy object)
+
+
+# homework
+
+* move MovieLibrary and Movie to the lib folder (in separate files)
+* separate the include? method into its own module (and whatever else we can)
+* extend one method at run time and another at instantiation time
+* fix the one broken spec.
+
