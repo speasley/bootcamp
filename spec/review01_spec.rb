@@ -64,6 +64,7 @@ describe "review lesseon 1" do
     
     def accept(visitor)
       size = @movies.size
+      i = 0
       until i > size
         movie = @movies[i]
         visitor.visit(movie)
@@ -106,7 +107,7 @@ describe "review lesseon 1" do
       end
       
       [1, 2, 4].map do |x|
-        return x *x
+        puts x * x
       end
       
     end
