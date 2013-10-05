@@ -1,12 +1,15 @@
+require 'helpers'
+
 module MovieLibrary
   
   class MovieLibrary
+    
     def initialize(movies = [])
       @movies = movies
     end
 
     def add(movie)
-      @movies.push(movie) unless include? movie
+      @movies.push(movie) unless Helpers.include?(@movies,movie)
     end
 
     def total_count
