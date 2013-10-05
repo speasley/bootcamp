@@ -26,6 +26,12 @@
 * modules
 * equality (value vs instance)
 
+# lesson five
+
+* review
+* building out the movie library
+* load path and require
+
 # todo
 
 * iterators

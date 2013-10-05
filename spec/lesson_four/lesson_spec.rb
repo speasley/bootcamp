@@ -1,6 +1,17 @@
 require 'spec_helper'
 
+
 class Blah
+end
+
+module LifeBoat
+  class Boat
+  end
+end
+
+module Lifeboat
+  class Ship
+  end
 end
 
 module ExposeBinding
