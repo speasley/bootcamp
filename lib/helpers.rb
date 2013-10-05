@@ -1,11 +1,9 @@
-module Helpers
-    
-    def Helpers.include?(movies,movie)
+module Helpers  
+    def include?(thing)
       match = false
-      movies.each do |m|
-        match = true if m == movie
+      each do |t|
+        match = true if t == thing
       end
       match
     end
-      
 end

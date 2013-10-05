@@ -1,13 +1,15 @@
 require "spec_helper"
-require "movielibrary"
-require "movie"
 
 describe MovieLibrary do
   
-  include MovieLibrary
-  include Movie
+  # include MovieLibrary
+  # include Movie
   
   context "when adding a movie to the library" do
+    it "should tell me what the load path is" do
+      puts $:
+    end
+    
     it "should increase the total number of movies in the library" do
       library = MovieLibrary::MovieLibrary.new
       shawshank_redemption = Movie::Movie.new("The Shawshank Redemption")
