@@ -103,7 +103,7 @@ describe "review lesseon 1" do
       end
       
       [1, 2, 4].map do |x|
-        x * x
+        puts x * x
       end
       
     end
