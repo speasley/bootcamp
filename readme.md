@@ -32,6 +32,16 @@
 * building out the movie library
 * load path and require
 
+# 2013.10.12
+
+* heroku command line interface (cli)
+  * heroku run rake *
+  * heroku run bash
+  * database backups
+  * database restore
+  * deployments
+  * seed data
+
 # todo
 
 * iterators
