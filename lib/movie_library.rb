@@ -9,7 +9,7 @@ class MovieLibrary
 
   def add(movie)
     @movies.push(movie) unless include?(movie)
-  end    
+  end
 
   def total_count
     @movies.size
