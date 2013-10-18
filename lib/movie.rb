@@ -1,5 +1,7 @@
 class Movie
-  def initialize(name)
-    @name = name
+  attr_reader :title
+
+  def initialize(attributes)
+    @title, @studio = attributes.values_at(:title, :studio)
   end
 end

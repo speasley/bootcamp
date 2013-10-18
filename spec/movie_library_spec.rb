@@ -98,9 +98,15 @@ describe MovieLibrary do
 
   context 'Sorting movies' do
     it 'Sorts all movies by descending title' do
+      expected_order = [ cars, chasing_amy, dumbo, fantasia, man_on_fire, monsters_inc, pinocchio, shawshank_redemption, toy_story, up]
+      results = library.sort_movies_by_title_descending
+      results.should == expected_order
     end
 
     it 'Sorts all movies by ascending title' do
+      expected_order = [up, toy_story, shawshank_redemption, pinocchio, monsters_inc, man_on_fire, fantasia, dumbo, chasing_amy, cars]
+      results = library.sort_movies_by_title_ascending
+      results.should == expected_order
     end
 
     it 'Sorts all movies by descending release date' do
