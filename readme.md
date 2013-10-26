@@ -42,6 +42,10 @@
   * deployments
   * seed data
 
+* 2013.10.26
+  * review
+  * exercises
+
 # todo
 
 * iterators
