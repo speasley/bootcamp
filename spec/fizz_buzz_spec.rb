@@ -2,6 +2,10 @@ require "spec_helper"
 
 class FizzBuzz
   def run(input)
+    @fizzbuzz = ""
+    @fizzbuzz = @fizzbuzz + "Fizz" if (input % 3 == 0)
+    @fizzbuzz = @fizzbuzz + "Buzz" if (input % 5 == 0)
+    @fizzbuzz
   end
 end
 
