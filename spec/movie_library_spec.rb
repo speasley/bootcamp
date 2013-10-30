@@ -55,7 +55,7 @@ describe MovieLibrary do
       results.should include(monsters_inc)
     end
 
-    xit 'Can find all movies published by pixar or disney' do
+    it 'Can find all movies published by pixar or disney' do
       results = library.find_all_movies_by_pixar_or_disney
       results.count.should == 7
       results.should include(toy_story)

@@ -26,4 +26,11 @@ class MovieLibrary
       movie.studio == Studio::Pixar
     end
   end
+
+  def find_all_movies_by_pixar_or_disney
+    movies_by_disney = find_all do |movie|
+      movie.studio == Studio::Disney
+    end
+    find_all_movies_by_pixar + movies_by_disney
+  end
 end
