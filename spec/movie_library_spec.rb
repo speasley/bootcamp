@@ -67,7 +67,7 @@ describe MovieLibrary do
       results.should include(pinocchio)
     end
 
-    xit 'Can find all movies not published by pixar' do
+    it 'Can find all movies not published by pixar' do
       results = library.find_all_movies_not_published_by_pixar
       results.length.should == 6
       results.should include(fantasia)

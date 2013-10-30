@@ -33,4 +33,8 @@ class MovieLibrary
     end
     find_all_movies_by_pixar + movies_by_disney
   end
+
+  def find_all_movies_not_published_by_pixar
+    @movies - find_all_movies_by_pixar
+  end
 end
