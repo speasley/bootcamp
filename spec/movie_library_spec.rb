@@ -13,7 +13,7 @@ describe MovieLibrary do
 
   let(:fantasia) { create_movie(title: "Fantasia", studio: Studio::Disney, year_published: 1940) }
   let(:dumbo) { create_movie(title: "Dumbo", studio: Studio::Disney, year_published: 1941) }
-  let(:pinocchio) { create_movie(title: "Pinoccio", studio: Studio::Disney, year_published: 1940) }
+  let(:pinocchio) { create_movie(title: "Pinocchio", studio: Studio::Disney, year_published: 1940) }
 
   let(:all_movies) { [shawshank_redemption, chasing_amy, man_on_fire, toy_story, up, cars, monsters_inc, fantasia, dumbo, pinocchio] }
 
@@ -112,10 +112,16 @@ describe MovieLibrary do
       results.should == expected_order
     end
 
-    xit 'Sorts all movies by descending release date' do
+    it 'Sorts all movies by descending release date' do
+      expected_order = [cars, up, man_on_fire, monsters_inc, chasing_amy, toy_story, shawshank_redemption, dumbo, fantasia, pinocchio ]
+      results = library.sort_movies_by_descending_release_date
+      results.should == expected_order
     end
 
-    xit 'Sorts all movies by ascending release date' do
+    it 'Sorts all movies by ascending release date' do
+      expected_order = [pinocchio, fantasia, dumbo, shawshank_redemption, toy_story, chasing_amy, monsters_inc, man_on_fire, up, cars]
+      results = library.sort_movies_by_ascending_release_date
+      results.should == expected_order
     end
 
     xit 'Sorts all movies by preferred studios and release date ascending' do

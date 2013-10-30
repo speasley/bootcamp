@@ -59,4 +59,14 @@ class MovieLibrary
   def sort_movies_by_title_ascending
     sort_movies_by_title_descending.reverse
   end
+
+  def sort_movies_by_descending_release_date
+    sort_movies_by_ascending_release_date.reverse
+  end
+
+  def sort_movies_by_ascending_release_date
+    @movies.sort do |x, y|
+      x.year_published <=> y.year_published
+    end
+  end
 end
