@@ -1,4 +1,4 @@
-module Helpers  
+module Helpers
     def include?(thing)
       match = false
       each do |t|
