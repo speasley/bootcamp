@@ -20,4 +20,10 @@ class MovieLibrary
       yield movie
     end
   end
+
+  def find_all_movies_by_pixar
+    find_all do |movie|
+      movie.studio == Studio::Pixar
+    end
+  end
 end

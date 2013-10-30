@@ -46,7 +46,7 @@ describe MovieLibrary do
       all_movies.each { |x| library.add(x) }
     end
 
-    xit 'Can find all pixar movies' do
+    it 'Can find all pixar movies' do
       results = library.find_all_movies_by_pixar
       results.count.should == 4
       results.should include(toy_story)
