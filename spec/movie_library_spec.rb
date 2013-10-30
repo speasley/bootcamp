@@ -106,7 +106,7 @@ describe MovieLibrary do
       results.should == expected_order
     end
 
-    xit 'Sorts all movies by ascending title' do
+    it 'Sorts all movies by ascending title' do
       expected_order = [up, toy_story, shawshank_redemption, pinocchio, monsters_inc, man_on_fire, fantasia, dumbo, chasing_amy, cars]
       results = library.sort_movies_by_title_ascending
       results.should == expected_order

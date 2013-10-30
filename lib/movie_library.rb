@@ -55,4 +55,8 @@ class MovieLibrary
       x.title <=> y.title
     end
   end
+
+  def sort_movies_by_title_ascending
+    sort_movies_by_title_descending.reverse
+  end
 end
