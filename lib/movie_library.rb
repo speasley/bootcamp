@@ -43,4 +43,10 @@ class MovieLibrary
       movie.year_published > 2004
     end
   end
+
+  def find_all_movies_between_1982_and_2003
+    find_all do |movie|
+      movie.year_published >= 1982 && movie.year_published <= 2003
+    end
+  end
 end

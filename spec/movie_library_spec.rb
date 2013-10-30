@@ -85,10 +85,9 @@ describe MovieLibrary do
       results.should include(cars)
     end
 
-    xit 'Can find all movies released between 1982 and 2003 - Inclusive' do
+    it 'Can find all movies released between 1982 and 2003 - Inclusive' do
       results = library.find_all_movies_between_1982_and_2003
-      results.length.should == 5
-      results.should include(up)
+      results.length.should == 4
       results.should include(shawshank_redemption)
       results.should include(chasing_amy)
       results.should include(toy_story)
