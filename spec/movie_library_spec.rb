@@ -78,7 +78,7 @@ describe MovieLibrary do
       results.should include(man_on_fire)
     end
 
-    xit 'Can find all movies released after 2004' do
+    it 'Can find all movies released after 2004' do
       results = library.find_all_movies_published_after_2004
       results.length.should == 2
       results.should include(up)

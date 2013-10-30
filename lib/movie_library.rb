@@ -37,4 +37,10 @@ class MovieLibrary
   def find_all_movies_not_published_by_pixar
     @movies - find_all_movies_by_pixar
   end
+
+  def find_all_movies_published_after_2004
+    find_all do |movie|
+      movie.year_published > 2004
+    end
+  end
 end
