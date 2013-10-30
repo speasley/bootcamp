@@ -96,7 +96,11 @@ describe MovieLibrary do
   end
 
   context 'Sorting movies' do
-    xit 'Sorts all movies by descending title' do
+    before :each do
+      all_movies.each { |x| library.add(x) }
+    end
+
+    it 'Sorts all movies by descending title' do
       expected_order = [ cars, chasing_amy, dumbo, fantasia, man_on_fire, monsters_inc, pinocchio, shawshank_redemption, toy_story, up]
       results = library.sort_movies_by_title_descending
       results.should == expected_order

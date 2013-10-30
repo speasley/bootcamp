@@ -49,4 +49,10 @@ class MovieLibrary
       movie.year_published >= 1982 && movie.year_published <= 2003
     end
   end
+
+  def sort_movies_by_title_descending
+    @movies.sort do |x, y|
+      x.title <=> y.title
+    end
+  end
 end
