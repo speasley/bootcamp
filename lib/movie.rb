@@ -8,4 +8,12 @@ class Movie
   def ==(other)
     self.title == other.title
   end
+
+  def to_s
+    title
+  end
+
+  def inspect
+    to_s
+  end
 end

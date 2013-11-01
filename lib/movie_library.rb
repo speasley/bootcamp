@@ -69,4 +69,12 @@ class MovieLibrary
       x.year_published <=> y.year_published
     end
   end
+
+  def sort_movies_by_preferred_studios_and_release_date_ascending
+    rankings = [Studio::Pixar, Studio::Disney, Studio::CastleRock, Studio::MiramaxFilms, Studio::RegencyEnterprises]
+    @movies.sort do |x, y|
+      result = rankings.find_index(x.studio) <=> rankings.find_index(y.studio)
+      result == 0 ? x.year_published <=> y.year_published : result
+    end
+  end
 end

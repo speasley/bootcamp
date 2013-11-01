@@ -124,7 +124,11 @@ describe MovieLibrary do
       results.should == expected_order
     end
 
-    xit 'Sorts all movies by preferred studios and release date ascending' do
+    it 'Sorts all movies by preferred studios and release date ascending' do
+      #rankings: Pixar, Disney, CastleRock, MiramaxFilms, RegenceyEnterprises
+      expected_order = [ toy_story, monsters_inc, up, cars, fantasia, pinocchio, dumbo, shawshank_redemption, chasing_amy, man_on_fire]
+      results = library.sort_movies_by_preferred_studios_and_release_date_ascending
+      results.should == expected_order
     end
   end
 end
