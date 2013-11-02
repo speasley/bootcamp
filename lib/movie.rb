@@ -16,4 +16,14 @@ class Movie
   def inspect
     to_s
   end
+
+  class << self
+    def published_after(year)
+      IsAfter.new(:year_published, year)
+    end
+
+    def published_before(year)
+      IsBefore.new(:year_published, year)
+    end
+  end
 end
