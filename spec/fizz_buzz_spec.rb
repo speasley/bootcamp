@@ -1,7 +1,11 @@
 require "spec_helper"
 
 class FizzBuzz
-  def run(input)
+  def run(n)
+    result = ""
+    return result << "Fizz" if n % 3 == 0
+    result << "Buzz" if n % 5 == 0
+    result
   end
 end
 
