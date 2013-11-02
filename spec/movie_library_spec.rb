@@ -13,7 +13,7 @@ describe MovieLibrary do
 
   let(:fantasia) { create_movie(title: "Fantasia", studio: Studio::Disney, year_published: 1940) }
   let(:dumbo) { create_movie(title: "Dumbo", studio: Studio::Disney, year_published: 1941) }
-  let(:pinocchio) { create_movie(title: "Pinoccio", studio: Studio::Disney, year_published: 1940) }
+  let(:pinocchio) { create_movie(title: "Pinocchio", studio: Studio::Disney, year_published: 1940) }
 
   let(:all_movies) { [shawshank_redemption, chasing_amy, man_on_fire, toy_story, up, cars, monsters_inc, fantasia, dumbo, pinocchio] }
 
@@ -87,8 +87,7 @@ describe MovieLibrary do
 
     it 'Can find all movies released between 1982 and 2003 - Inclusive' do
       results = library.find_all_movies_between_1982_and_2003
-      results.length.should == 5
-      results.should include(up)
+      results.length.should == 4
       results.should include(shawshank_redemption)
       results.should include(chasing_amy)
       results.should include(toy_story)
@@ -97,6 +96,10 @@ describe MovieLibrary do
   end
 
   context 'Sorting movies' do
+    before :each do
+      all_movies.each { |x| library.add(x) }
+    end
+
     it 'Sorts all movies by descending title' do
       expected_order = [ cars, chasing_amy, dumbo, fantasia, man_on_fire, monsters_inc, pinocchio, shawshank_redemption, toy_story, up]
       results = library.sort_movies_by_title_descending
@@ -110,12 +113,22 @@ describe MovieLibrary do
     end
 
     it 'Sorts all movies by descending release date' do
+      expected_order = [cars, up, man_on_fire, monsters_inc, chasing_amy, toy_story, shawshank_redemption, dumbo, fantasia, pinocchio ]
+      results = library.sort_movies_by_descending_release_date
+      results.should == expected_order
     end
 
     it 'Sorts all movies by ascending release date' do
+      expected_order = [pinocchio, fantasia, dumbo, shawshank_redemption, toy_story, chasing_amy, monsters_inc, man_on_fire, up, cars]
+      results = library.sort_movies_by_ascending_release_date
+      results.should == expected_order
     end
 
     it 'Sorts all movies by preferred studios and release date ascending' do
+      #rankings: Pixar, Disney, CastleRock, MiramaxFilms, RegenceyEnterprises
+      expected_order = [ toy_story, monsters_inc, up, cars, fantasia, pinocchio, dumbo, shawshank_redemption, chasing_amy, man_on_fire]
+      results = library.sort_movies_by_preferred_studios_and_release_date_ascending
+      results.should == expected_order
     end
   end
 
