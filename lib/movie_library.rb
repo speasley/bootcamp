@@ -8,7 +8,11 @@ class MovieLibrary
   end
 
   def add(movie)
-    @movies.push(movie) unless include?(movie)
+    exists = false
+    @movies.each do |m|
+      exists = true if movie.title == m.title
+    end
+    @movies.push(movie) if exists == false
   end
 
   def total_count
