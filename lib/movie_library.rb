@@ -58,6 +58,14 @@ class MovieLibrary
     end
     @movies1982_to_2003
   end
+  
+  def sort_movies_by_title_descending()
+    @movies.sort_by { |m| m[:title] }
+    @movies.each do |movie|
+      #I need title, studio, year_published
+      #I don't know what I'm doing. map?
+    end
+  end
 
   def each
     # @movies.count.times do |n|
