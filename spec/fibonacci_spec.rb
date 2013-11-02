@@ -1,6 +1,8 @@
 require "spec_helper"
 
-def fibonacci(n)
+def fibonacci(n = 0)
+  @n = n
+  @n
 end
 
 def fibonacci_enumerator
