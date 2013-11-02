@@ -42,6 +42,14 @@ class MovieLibrary
     end
     @non_pixar_movies
   end
+  
+  def find_all_movies_published_after_2004()
+    @post_2004_movies = []
+    @movies.each do |m|
+      @post_2004_movies.push(m) if m.year_published > 2004
+    end
+    @post_2004_movies
+  end
 
   def each
     # @movies.count.times do |n|
