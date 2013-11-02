@@ -50,6 +50,14 @@ class MovieLibrary
     end
     @post_2004_movies
   end
+  
+  def find_all_movies_between_1982_and_2003()
+    @movies1982_to_2003 = []
+    @movies.each do |m|
+      @movies1982_to_2003.push(m) if m.year_published >= 1982 && m.year_published <= 2003
+    end
+    @movies1982_to_2003
+  end
 
   def each
     # @movies.count.times do |n|
