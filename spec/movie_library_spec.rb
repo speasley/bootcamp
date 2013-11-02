@@ -118,4 +118,18 @@ describe MovieLibrary do
     it 'Sorts all movies by preferred studios and release date ascending' do
     end
   end
+
+  context "equality" do
+    it "should not equal" do
+      blah = create_movie(title: 'blah')
+      huh = create_movie(title: 'huh')
+      blah.should_not == huh
+    end
+
+    it "spec_name" do
+      huh1 = create_movie(title: 'huh')
+      huh2 = create_movie(title: 'huh')
+      huh1.should == huh2
+    end
+  end
 end
