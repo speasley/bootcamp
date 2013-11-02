@@ -34,6 +34,14 @@ class MovieLibrary
     end
     @pixar_disney_movies
   end
+  
+  def find_all_movies_not_published_by_pixar()
+    @non_pixar_movies = []
+    @movies.each do |m|
+      @non_pixar_movies.push(m) if m.studio != Studio::Pixar
+    end
+    @non_pixar_movies
+  end
 
   def each
     # @movies.count.times do |n|
