@@ -26,6 +26,14 @@ class MovieLibrary
     end
     @pixar_movies
   end
+  
+  def find_all_movies_by_pixar_or_disney()
+    @pixar_disney_movies = []
+    @movies.each do |m|
+      @pixar_disney_movies.push(m) if m.studio == Studio::Pixar || m.studio == Studio::Disney
+    end
+    @pixar_disney_movies
+  end
 
   def each
     # @movies.count.times do |n|
