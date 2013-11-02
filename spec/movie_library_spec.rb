@@ -139,7 +139,7 @@ describe MovieLibrary do
       blah.should_not == huh
     end
 
-    it "spec_name" do
+    it "should equal" do
       huh1 = create_movie(title: 'huh')
       huh2 = create_movie(title: 'huh')
       huh1.should == huh2
