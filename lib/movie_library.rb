@@ -60,11 +60,11 @@ class MovieLibrary
   end
   
   def sort_movies_by_title_descending()
-    @movies.sort_by { |m| m[:title] }
-    @movies.each do |movie|
-      #I need title, studio, year_published
-      #I don't know what I'm doing. map?
-    end
+    @movies.sort {|a,b| b.title <=> a.title}
+  end
+  
+  def sort_movies_by_title_ascending()
+    @movies.sort {|a,b| a.title <=> b.title}
   end
 
   def each
