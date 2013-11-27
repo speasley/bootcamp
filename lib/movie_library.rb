@@ -19,12 +19,16 @@ class MovieLibrary
     @movies.size
   end
   
-  def find_all_movies_by_pixar()
-    @pixar_movies = []
+  def find_by(items, conditions)
+    @items = []
     @movies.each do |m|
-      @pixar_movies.push(m) if m.studio == Studio::Pixar
+      @items.push(m) if conditions.call(m)
     end
-    @pixar_movies
+    @items
+  end
+  
+  def find_all_movies_by_pixar()
+    find_by( @movies, lambda { |x| x.studio == Studio::Pixar } )
   end
   
   def find_all_movies_by_pixar_or_disney()
