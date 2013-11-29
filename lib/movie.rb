@@ -1,8 +1,8 @@
 class Movie
-  attr_reader :title
+  attr_reader :title, :studio, :year
 
   def initialize(attributes)
-    @title, @studio = attributes.values_at(:title, :studio)
+    @title, @studio, @year = attributes.values_at(:title, :studio, :year_published)
   end
 
   def ==(other)
