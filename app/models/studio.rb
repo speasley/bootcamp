@@ -1,4 +1,5 @@
 class Studio < ActiveRecord::Base
+  has_many :movie
   CastleRock = Studio.find_by_id(1)
   MiramaxFilms = Studio.find_by_id(2)
   RegencyEnterprises = Studio.find_by_id(3)

@@ -1,3 +1,4 @@
 class Movie < ActiveRecord::Base
-  attr_reader :title, :studio, :year
+  validates_uniqueness_of :title
+  belongs_to :studio
 end
