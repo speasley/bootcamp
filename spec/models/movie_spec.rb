@@ -2,29 +2,29 @@ require "spec_helper"
 require 'database_cleaner'
 
 describe Movie do
-  let(:shawshank_redemption) { create_movie(title: "The Shawshank Redemption", studio_id: 1, year: 1994) }
-  let(:chasing_amy) { create_movie(title: "Chasing Amy", studio_id: 2, year: 1997) }
-  let(:man_on_fire) { create_movie(title: "Man on Fire", studio_id: 3, year: 2004) }
-
-  let(:toy_story) { create_movie(title: "Toy Story", studio_id: 4, year: 1995) }
-  let(:up) { create_movie(title: "Up", studio_id: 4, year: 2006) }
-  let(:cars) { create_movie(title: "Cars", studio_id: 4, year: 2009) }
-  let(:monsters_inc) { create_movie(title: "Monsters Inc.", studio_id: 4, year: 2001) }
-
-  let(:fantasia) { create_movie(title: "Fantasia", studio_id: 5, year: 1940) }
-  let(:dumbo) { create_movie(title: "Dumbo", studio_id: 5, year: 1941) }
-  let(:pinocchio) { create_movie(title: "Pinocchio", studio_id: 5, year: 1940) }
-
-  let(:all_movies) { [shawshank_redemption, chasing_amy, man_on_fire, toy_story, up, cars, monsters_inc, fantasia, dumbo, pinocchio] }
+  #let(:shawshank_redemption) { create_movie(title: "The Shawshank Redemption", studio_id: 1, year: 1994) }
+  #let(:chasing_amy) { create_movie(title: "Chasing Amy", studio_id: 2, year: 1997) }
+  #let(:man_on_fire) { create_movie(title: "Man on Fire", studio_id: 3, year: 2004) }
+  #
+  #let(:toy_story) { create_movie(title: "Toy Story", studio_id: 4, year: 1995) }
+  #let(:up) { create_movie(title: "Up", studio_id: 4, year: 2006) }
+  #let(:cars) { create_movie(title: "Cars", studio_id: 4, year: 2009) }
+  #let(:monsters_inc) { create_movie(title: "Monsters Inc.", studio_id: 4, year: 2001) }
+  #
+  #let(:fantasia) { create_movie(title: "Fantasia", studio_id: 5, year: 1940) }
+  #let(:dumbo) { create_movie(title: "Dumbo", studio_id: 5, year: 1941) }
+  #let(:pinocchio) { create_movie(title: "Pinocchio", studio_id: 5, year: 1940) }
+  #
+  #let(:all_movies) { [shawshank_redemption, chasing_amy, man_on_fire, toy_story, up, cars, monsters_inc, fantasia, dumbo, pinocchio] }
 
   def create_movie(details)
-    Movie.create(details)
+    Movie.create(details) unless Movie.find_by title: details[:title]
   end
 
   context "when adding a movie to the library" do
     it "should increase the total number of movies in the library" do
-      shawshank_redemption
-      chasing_amy
+      create_movie(title: "The Shawshank Redemption")
+      create_movie(title: "Chasing Amy")
       Movie.count.should == 2
     end
 
@@ -43,16 +43,16 @@ describe Movie do
 
   context 'Searching for movies' do
     
-    #Movie.create(title: "The Shawshank Redemption", studio_id: 1, year: 1994)
-    #Movie.create(title: "Chasing Amy", studio_id: 2, year: 1997)
-    #Movie.create(title: "Man on Fire", studio_id: 3 , year: 2004 )
-    #Movie.create(title: "Toy Story", studio_id: 4 , year: 1995 )
-    #Movie.create(title: "Up", studio_id: 4, year: 2006 )
-    #Movie.create(title: "Cars", studio_id: 4, year: 2009 )
-    #Movie.create(title: "Monsters Inc.", studio_id: 4, year: 2001 )
-    #Movie.create(title: "Fantasia", studio_id: 5, year: 1940 )
-    #Movie.create(title: "Dumbo", studio_id: 5, year: 1941 )
-    #Movie.create(title: "Pinocchio", studio_id: 5, year: 1940 )
+    Movie.create(title: "The Shawshank Redemption", studio_id: 1, year: 1994)
+    Movie.create(title: "Chasing Amy", studio_id: 2, year: 1997)
+    Movie.create(title: "Man on Fire", studio_id: 3 , year: 2004 )
+    Movie.create(title: "Toy Story", studio_id: 4 , year: 1995 )
+    Movie.create(title: "Up", studio_id: 4, year: 2006 )
+    Movie.create(title: "Cars", studio_id: 4, year: 2009 )
+    Movie.create(title: "Monsters Inc.", studio_id: 4, year: 2001 )
+    Movie.create(title: "Fantasia", studio_id: 5, year: 1940 )
+    Movie.create(title: "Dumbo", studio_id: 5, year: 1941 )
+    Movie.create(title: "Pinocchio", studio_id: 5, year: 1940 )
 
     xit 'Can find all pixar movies' do
       pixar_id = Studio.find('Pixar')
