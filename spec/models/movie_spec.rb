@@ -48,10 +48,7 @@ describe Movie do
     end
   
     it 'Can find all pixar movies' do
-      
-      pixar_id = Studio.where(["title = ?", 'Pixar']).first[:id]
-      results = Movie.where(:studio_id => pixar_id)
-      p "------#{results.to_a}"
+      results = Movie.where(:studio_id => Studio::Pixar)
       results.count.should == 4
       results.should include(toy_story)
       results.should include(up)
@@ -59,9 +56,8 @@ describe Movie do
       results.should include(monsters_inc)
     end
 
-    xit 'Can find all movies published by pixar or disney' do
-      results = 
-      
+    it 'Can find all movies published by pixar or disney' do      
+      results = Movie.where(:studio_id => [Studio::Pixar, Studio::Disney])
       results.count.should == 7
       results.should include(toy_story)
       results.should include(up)
@@ -72,8 +68,8 @@ describe Movie do
       results.should include(pinocchio)
     end
 
-    xit 'Can find all movies not published by pixar' do
-      results = library.find_all_movies_not_published_by_pixar
+    it 'Can find all movies not published by pixar' do
+      results = Movie.where.not(:studio_id => Studio::Pixar)
       results.length.should == 6
       results.should include(fantasia)
       results.should include(dumbo)
@@ -83,15 +79,15 @@ describe Movie do
       results.should include(man_on_fire)
     end
 
-    xit 'Can find all movies released after 2004' do
-      results = library.find_all_movies_published_after_2004
+    it 'Can find all movies released after 2004' do
+      results = Movie.where("year > 2004")
       results.length.should == 2
       results.should include(up)
       results.should include(cars)
     end
 
-    xit 'Can find all movies released between 1982 and 2003 - Inclusive' do
-      results = library.find_all_movies_between_1982_and_2003
+    it 'Can find all movies released between 1982 and 2003 - Inclusive' do
+      results = Movie.where("year >= 1982").where("year <= 2003")
       results.length.should == 4
       results.should include(shawshank_redemption)
       results.should include(chasing_amy)
