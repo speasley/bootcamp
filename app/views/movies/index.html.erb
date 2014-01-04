@@ -1,1 +1,7 @@
-<h1>hi</h1>
+<h1>movies (<%= @movies.count %>)</h1>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li><%= movie.title %></li>
+  <% end %>
+</ul>
