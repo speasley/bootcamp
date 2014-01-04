@@ -17,4 +17,20 @@ describe MoviesController do
       response.should be_success
     end
   end
+
+  describe :new do
+    context "when not logged in" do
+      it "should redirect you to the home page" do
+        get :new
+        response.should redirect_to(movies_path)
+      end
+    end
+
+    context "when logged in" do
+      it "should render the web page" do
+        get :new, {}, user_id: '1'
+        response.should be_success
+      end
+    end
+  end
 end
