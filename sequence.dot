@@ -1,0 +1,15 @@
+digraph sequence {
+  client -> webrick;
+  webrick -> rack;
+  rack -> rails;
+  rails -> routes;
+  routes -> controller;
+  controller -> model;
+  controller -> view;
+  view -> controller;
+  controller -> routes;
+  routes -> rails;
+  rails -> rack;
+  rack -> webrick;
+  webrick -> client;
+}
