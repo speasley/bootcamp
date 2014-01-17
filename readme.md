@@ -65,11 +65,21 @@
 * range
 * lazy (lazy object)
 
+# rails (fast forward)
 
-# homework
-
-* move MovieLibrary and Movie to the lib folder (in separate files)
-* separate the include? method into its own module (and whatever else we can)
-* extend one method at run time and another at instantiation time
-* fix the one broken spec.
+* active record
+  * query interface
+  * callback lifecycle
+  * validation
+  * associations
+* action controller
+  * rack
+  * filters
+* routing
+  * scopes
+  * http verbs
+  * resources
+* database
+  * evolutionary database design
+  * dbconsole
 
