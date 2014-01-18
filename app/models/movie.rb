@@ -1,6 +1,7 @@
 class Movie < ActiveRecord::Base
   belongs_to :studio
   validates_uniqueness_of :title
+  validates :title, :presence => true
 
   def self.sort_movies_by_preferred_studios_and_release_date_ascending
     rankings = [Studio::Pixar, Studio::Disney, Studio::CastleRock, Studio::MiramaxFilms, Studio::RegencyEnterprises]
