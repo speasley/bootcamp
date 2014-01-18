@@ -3,9 +3,11 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    session[:user_id] = 1
   end
 
   def new
+    @movie = Movie.new
   end
 
   private

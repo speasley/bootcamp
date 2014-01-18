@@ -30,6 +30,7 @@ describe MoviesController do
       it "should render the web page" do
         get :new, {}, user_id: '1'
         response.should be_success
+        assigns(:movie).should be_new_record
       end
     end
   end
