@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_filter :authenticate_admins, only: [:new]
+  protect_from_forgery with: :null_session
 
   def index
     @movies = Movie.all
@@ -8,6 +9,12 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+  end
+  
+  def create
+    @movie = Movie.new(params[:movie])
+    @movie.save
+    redirect_to movies_path
   end
 
   private

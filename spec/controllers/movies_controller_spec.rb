@@ -34,4 +34,19 @@ describe MoviesController do
       end
     end
   end
+  
+  describe :create do
+    context "when not logged in" do
+      it "should redirect you to the home page" do
+        get :create
+        response.should redirect_to(movies_path)
+      end
+    end
+    context "when logged in" do
+      it "should send the create a new movie" do
+        get :create
+      end 
+    end
+  end
+  
 end
