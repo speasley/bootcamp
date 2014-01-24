@@ -39,6 +39,11 @@ describe Movie do
       create_movie(:title => 'Old School').save
       Movie.count.should == 1
     end
+    
+    it "will not create a movie that is missing a title" do
+      create_movie(:title => nil).save
+      Movie.count.should == 0
+    end
   end
 
   context 'Searching for movies' do
