@@ -38,8 +38,9 @@ describe MoviesController do
   describe :create do
     context "when not logged in" do
       it "should redirect you to the home page" do
-        get :create
+        post(:create, { :movie => { :title => "blah" } })
         response.should redirect_to(movies_path)
+        Movie.count.should == 0
       end
     end
     context "when logged in" do
