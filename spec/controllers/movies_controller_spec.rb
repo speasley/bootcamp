@@ -44,8 +44,9 @@ describe MoviesController do
       end
     end
     context "when logged in" do
-      it "should send the create a new movie" do
-        get :create
+      it "should create a new movie" do
+        get :create, { :movie => { :title => "even blaher" }}, user_id: '1'
+        Movie.count.should == 1
       end 
     end
   end
