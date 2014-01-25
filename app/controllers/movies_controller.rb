@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_filter :authenticate_admins, only: [:new]
+  before_filter :authenticate_admins, except: [:index]
 
   def index
     @movies = Movie.all
